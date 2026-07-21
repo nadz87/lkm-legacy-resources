@@ -32,6 +32,7 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+html, body { overflow-x: clip; }   /* full-bleed shapes (orange dome) must not widen the page */
 
 body {
   font-family: var(--font-sans);
@@ -154,7 +155,7 @@ section { padding: var(--sec-y) 0; }
 
 /* ---------- utility bar (navy) ---------- */
 
-.util-bar { background: var(--navy); }
+.util-bar { background: var(--ink); border-bottom: 3px solid var(--accent); }
 .util-bar .container {
   display: flex;
   align-items: center;
@@ -199,6 +200,9 @@ section { padding: var(--sec-y) 0; }
 .logo { display: flex; align-items: center; gap: 11px; }
 .logo-img { height: 46px; width: auto; display: block; }
 .site-footer .logo-img { height: 54px; }
+
+/* header lockup — single composed SVG (mark + wordmark already laid out) */
+.logo-header-img { height: 32px; width: auto; display: block; }
 .logo-mark { width: 26px; height: 26px; background: var(--accent); transform: rotate(45deg); flex: none; }
 .logo-text { line-height: 1.05; color: var(--ink); }
 .logo-text .logo-big { font-family: var(--font-display); font-weight: 700; font-size: 24px; letter-spacing: -0.02em; display: block; }
@@ -223,6 +227,62 @@ section { padding: var(--sec-y) 0; }
 .main-nav a:hover, .main-nav a[aria-current="page"] { border-bottom-color: var(--accent); }
 .main-nav a.has-sub::after { content: " ⌄"; font-size: 12px; color: var(--slate); }
 .nav-search { font-size: 19px; line-height: 1; color: var(--ink); padding: 6px 10px; }
+
+/* ---------- mega-menu dropdowns ---------- */
+
+.main-nav .nav-drop { display: inline-flex; }
+.main-nav .nav-top { display: inline-flex; align-items: center; gap: 6px; }
+.main-nav .nav-top::after {
+  content: "\25BE"; font-size: 9px; color: var(--slate);
+  transition: transform 0.2s ease; margin-top: 1px;
+}
+.nav-drop.open .nav-top, .nav-drop:focus-within .nav-top { border-bottom-color: var(--accent); }
+.nav-drop.open .nav-top::after, .nav-drop:focus-within .nav-top::after {
+  transform: rotate(180deg); color: var(--accent);
+}
+
+.mega {
+  position: absolute;
+  left: 0; right: 0;
+  top: 100%;
+  margin-top: 12px;
+  z-index: 30;
+  opacity: 0; visibility: hidden; transform: translateY(-8px);
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+  pointer-events: none;
+}
+.nav-drop.open .mega, .nav-drop:focus-within .mega {
+  opacity: 1; visibility: visible; transform: none; pointer-events: auto;
+}
+.mega-inner {
+  background: var(--surface);
+  border-radius: 24px;
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.24);
+  padding: 46px 56px;
+  min-height: 300px;
+}
+.mega-overview {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 15px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--ink); margin-bottom: 30px;
+}
+.mega-overview span { color: var(--accent); font-size: 18px; }
+.mega-overview:hover { color: var(--accent); }
+.mega-list { list-style: none; max-width: 440px; }
+.mega-list a {
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  padding: 17px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+  font-size: 15px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.04em;
+  color: var(--slate);
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+.mega-list li:last-child a { border-bottom: 0; }
+.mega-list a::after { content: "\203A"; color: var(--muted); font-size: 19px; }
+.mega-list a:hover { color: var(--ink); padding-left: 6px; }
+.mega-list a:hover::after { color: var(--accent); }
 
 /* ---------- hero (photo bg + gradient, text tabs w/ top rules) ---------- */
 
@@ -454,7 +514,7 @@ section { padding: var(--sec-y) 0; }
   min-height: 379px;
   background:
     linear-gradient(180deg, rgba(8, 8, 8, 0.88), rgba(8, 8, 8, 0.88)),
-    url("assets/video-poster.jpg") center / cover no-repeat;
+    url("assets/signup-bg.jpg") center / cover no-repeat;
   padding: 60px 0;
 }
 
@@ -489,7 +549,7 @@ section { padding: var(--sec-y) 0; }
 
 /* ---------- statement band + stats (navy) ---------- */
 
-.statement-band { background: var(--navy); padding: 76px 0; text-align: center; }
+.statement-band { background: var(--ink); padding: 76px 0; text-align: center; }
 .statement-band h2 { color: var(--paper); max-width: 980px; margin: 0 auto; }
 .stats-grid {
   display: grid;
@@ -543,10 +603,10 @@ section { padding: var(--sec-y) 0; }
 .tiles-section::before {
   content: "";
   position: absolute;
-  left: 0; right: 0;
-  top: 42%; bottom: 0;
+  left: -16%; right: -16%;
+  top: 38%; bottom: 0;
   background: var(--wave);
-  border-radius: 100% 40% 0 0 / 160px 90px 0 0;
+  border-radius: 50% 50% 0 0 / 320px;
   z-index: -1;
 }
 .tile-row { display: flex; gap: 28px; flex-wrap: wrap; }
@@ -555,22 +615,20 @@ section { padding: var(--sec-y) 0; }
   background: var(--paper);
   border-radius: var(--radius);
   box-shadow: var(--shadow-card);
-  padding: 30px 30px 28px;
+  padding: 22px 28px;
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 24px;
+  min-height: 128px;
 }
+/* logo sits directly on the card (no chip), sized to fill like the Figma */
 .tile-logo {
   flex: none;
-  width: 104px;
-  height: 68px;
-  border-radius: 10px;
-  background: var(--paper);
-  border: 1px solid var(--border-soft);
+  width: 132px;
+  height: 88px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 12px;
 }
 .tile-logo img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
 .tile-text { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
@@ -642,7 +700,7 @@ section { padding: var(--sec-y) 0; }
 
 /* ---------- footer (navy, CTA row inside) ---------- */
 
-.site-footer { background: var(--navy); color: var(--paper); padding: 64px 0 0; }
+.site-footer { background: var(--ink); color: var(--paper); padding: 64px 0 0; }
 
 .footer-top {
   display: flex;
@@ -757,6 +815,21 @@ section { padding: var(--sec-y) 0; }
   .main-nav a { padding: 12px 0; width: 100%; border-bottom: 1px solid var(--border-soft); }
   .nav-toggle:checked ~ .main-nav { display: flex; }
 
+  /* mega-menu collapses to an inline indented list on mobile */
+  .main-nav .nav-drop { display: block; width: 100%; }
+  .main-nav .nav-top { width: 100%; }
+  .main-nav .nav-top::after { margin-left: auto; }
+  .mega {
+    position: static; opacity: 1; visibility: visible; transform: none;
+    pointer-events: auto; margin: 0;
+  }
+  .mega-inner {
+    background: transparent; box-shadow: none; border-radius: 0;
+    padding: 4px 0 10px 16px; min-height: 0;
+  }
+  .mega-overview { margin-bottom: 10px; font-size: 12px; }
+  .mega-list a { padding: 11px 0; font-size: 14px; }
+
   .hero-content { padding: 56px 0 48px; }
   .hero-tabs { grid-template-columns: repeat(4, 1fr); gap: 16px; overflow-x: auto; display: flex; }
   .hero-tab { min-width: 200px; }
@@ -777,5 +850,5 @@ section { padding: var(--sec-y) 0; }
   .rail-next { display: none; }
   .feature-card .img-r { height: 260px; }
   .red-card .img-r { height: 240px; }
-  .tiles-section::before { top: 30%; border-radius: 60% 30% 0 0 / 60px 40px 0 0; }
+  .tiles-section::before { top: 30%; border-radius: 50% 50% 0 0 / 90px; }
 }

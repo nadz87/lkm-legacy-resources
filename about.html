@@ -28,16 +28,66 @@
 <section class="page-hero on-dark">
   <div class="container capsule-zone">
     <header class="capsule">
-      <a class="logo" href="index.html" aria-label="LKM Legacy Resources — home">
-        <img src="assets/logos/lkm-logo.svg" alt="LKM Legacy Resources" class="logo-img">
+      <a class="logo" href="index.html" aria-label="LKM Legacy Group — home">
+        <img src="assets/logos/lkm-logo-header.svg" alt="LKM Legacy Group Sdn Bhd" class="logo-header-img">
       </a>
       <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
       <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle menu">☰</label>
       <nav class="main-nav" aria-label="Main navigation">
-        <a href="about.html" class="has-sub" aria-current="page">About Us</a>
-        <a href="index.html#services" class="has-sub">Our Services</a>
-        <a href="index.html#industries" class="has-sub">Industries We Serve</a>
-        <a href="index.html#highlights">Highlights</a>
+        <a href="index.html">Home</a>
+
+        <div class="nav-drop">
+          <a href="about.html" class="nav-top" aria-current="page">About Us</a>
+          <div class="mega"><div class="mega-inner">
+            <a class="mega-overview" href="about.html">About Us Overview <span>&rarr;</span></a>
+            <ul class="mega-list">
+              <li><a href="#story">Our Story</a></li>
+              <li><a href="#mission">Mission &amp; Vision</a></li>
+              <li><a href="#footprint">Operational Footprint</a></li>
+              <li><a href="#carbon">Environmental Commitment</a></li>
+            </ul>
+          </div></div>
+        </div>
+
+        <div class="nav-drop">
+          <a href="index.html#services" class="nav-top">Our Services</a>
+          <div class="mega"><div class="mega-inner">
+            <a class="mega-overview" href="index.html#services">Our Services Overview <span>&rarr;</span></a>
+            <ul class="mega-list">
+              <li><a href="index.html#services">Cleaning Services</a></li>
+              <li><a href="index.html#services">Facilities Manpower</a></li>
+              <li><a href="index.html#services">Manufacturing Site Support</a></li>
+              <li><a href="index.html#services">Training Centre</a></li>
+            </ul>
+          </div></div>
+        </div>
+
+        <div class="nav-drop">
+          <a href="index.html#industries" class="nav-top">Industries We Serve</a>
+          <div class="mega"><div class="mega-inner">
+            <a class="mega-overview" href="index.html#industries">Industries Overview <span>&rarr;</span></a>
+            <ul class="mega-list">
+              <li><a href="index.html#industries">Manufacturing Plants</a></li>
+              <li><a href="index.html#industries">Commercial Buildings</a></li>
+              <li><a href="index.html#industries">Retail Chains</a></li>
+              <li><a href="index.html#industries">F&amp;B Outlets</a></li>
+            </ul>
+          </div></div>
+        </div>
+
+        <div class="nav-drop">
+          <a href="#" class="nav-top">Associations</a>
+          <div class="mega"><div class="mega-inner">
+            <a class="mega-overview" href="#">Accreditations Overview <span>&rarr;</span></a>
+            <ul class="mega-list">
+              <li><a href="#">NFPA &mdash; National Fire Protection Association</a></li>
+              <li><a href="#">NADCA &mdash; National Air Duct Cleaners Association</a></li>
+              <li><a href="#">ISO 9001 &amp; ISO 14001</a></li>
+              <li><a href="#">MCPC &mdash; Malaysia Cleaning Proficiency Course</a></li>
+            </ul>
+          </div></div>
+        </div>
+
         <a href="#" class="nav-search" aria-label="Search">⌕</a>
       </nav>
     </header>
@@ -52,7 +102,7 @@
 </section>
 
 <!-- story -->
-<section>
+<section id="story">
   <div class="container">
     <div class="prose">
       <p class="eyebrow">How We Started</p>
@@ -65,7 +115,7 @@
 </section>
 
 <!-- mission & vision -->
-<section class="band-surface">
+<section class="band-surface" id="mission">
   <div class="container">
     <div class="sec-head">
       <div>
@@ -262,6 +312,22 @@
     </div>
   </div>
 </footer>
+
+<script>
+document.querySelectorAll('.nav-drop').forEach(function (drop) {
+  var timer;
+  drop.addEventListener('mouseenter', function () {
+    clearTimeout(timer);
+    document.querySelectorAll('.nav-drop.open').forEach(function (o) {
+      if (o !== drop) o.classList.remove('open');
+    });
+    drop.classList.add('open');
+  });
+  drop.addEventListener('mouseleave', function () {
+    timer = setTimeout(function () { drop.classList.remove('open'); }, 180);
+  });
+});
+</script>
 
 </body>
 </html>
