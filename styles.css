@@ -8,7 +8,9 @@
 :root {
   --ink: #000000;
   --paper: #ffffff;
-  --accent: #eb002a;
+  --accent: #d2ac3d;        /* brand gold (from LKM logo) */
+  --accent-dark: #b8942f;   /* gold hover */
+  --wave: #fb5f00;          /* client-tiles wave band */
   --slate: #2f3a41;
   --navy: #022035;
   --midblue: #00416a;
@@ -119,8 +121,8 @@ section { padding: var(--sec-y) 0; }
 .btn:active { transform: translateY(1px); }
 .btn:focus-visible { outline: 3px solid var(--midblue); outline-offset: 3px; }
 
-.btn--accent { background: var(--accent); border-color: var(--accent); color: var(--paper); }
-.btn--accent:hover { background: transparent; color: var(--accent); }
+.btn--accent { background: var(--accent); border-color: var(--accent); color: var(--ink); }
+.btn--accent:hover { background: transparent; color: var(--ink); }
 .on-dark .btn--accent:hover { color: var(--paper); border-color: var(--paper); }
 
 .btn--ink { background: transparent; border-color: var(--ink); color: var(--ink); }
@@ -413,7 +415,7 @@ section { padding: var(--sec-y) 0; }
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
-.rail-next:hover { background: #c50023; }
+.rail-next:hover { background: var(--accent-dark); }
 
 .scrub {
   height: 4px;
@@ -508,11 +510,13 @@ section { padding: var(--sec-y) 0; }
 
 /* ---------- red feature band ---------- */
 
+/* gold feature band — dark text on gold */
 .red-band { background: var(--accent); padding: 76px 0; }
 .red-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
 .red-card .img-r { height: 340px; margin-bottom: 26px; }
-.red-card h3 { font-size: 28px; line-height: 34px; color: var(--paper); margin-bottom: 12px; }
-.red-card p { color: rgba(255, 255, 255, 0.92); font-size: 15px; margin-bottom: 18px; }
+.red-card h3 { font-size: 28px; line-height: 34px; color: var(--ink); margin-bottom: 12px; }
+.red-card p { color: rgba(0, 0, 0, 0.82); font-size: 15px; margin-bottom: 18px; }
+.red-band .link-arrow, .red-band .link-arrow::after { color: var(--ink); }
 
 /* ---------- feature card (758px) ---------- */
 
@@ -541,7 +545,7 @@ section { padding: var(--sec-y) 0; }
   position: absolute;
   left: 0; right: 0;
   top: 42%; bottom: 0;
-  background: var(--navy);
+  background: var(--wave);
   border-radius: 100% 40% 0 0 / 160px 90px 0 0;
   z-index: -1;
 }
