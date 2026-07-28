@@ -44,21 +44,23 @@ export default function ProjectHighlightsMarquee() {
         </motion.div>
       </div>
 
-      <motion.p
-        initial="hidden"
-        animate="show"
-        variants={FADE_IN}
-        transition={{ delay: 0.15 }}
-        className="mt-8"
-      >
-        <a
-          href="project-highlight.html"
-          className="inline-flex items-center gap-2 font-semibold text-navy hover:text-accent-dark"
+      <div className="max-w-[1208px] mx-auto px-6">
+        <motion.p
+          initial="hidden"
+          animate="show"
+          variants={FADE_IN}
+          transition={{ delay: 0.15 }}
+          className="mt-8"
         >
-          View all {FEATURED_PROJECTS.length} project highlights
-          <span aria-hidden>→</span>
-        </a>
-      </motion.p>
+          <a
+            href="project-highlight.html"
+            className="inline-flex items-center gap-2 font-semibold text-navy hover:text-accent-dark"
+          >
+            View all {FEATURED_PROJECTS.length} project highlights
+            <span aria-hidden>→</span>
+          </a>
+        </motion.p>
+      </div>
     </div>
   );
 }
