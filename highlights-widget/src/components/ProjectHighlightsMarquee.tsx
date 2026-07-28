@@ -1,4 +1,3 @@
-import type { CSSProperties } from "react";
 import { motion } from "framer-motion";
 import { cn } from "../lib/utils";
 import { FEATURED_PROJECTS } from "../data/projects";
@@ -15,16 +14,15 @@ export default function ProjectHighlightsMarquee() {
     <div className={cn("w-full bg-background")}>
       <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
         <motion.div
-          className="flex gap-5 w-max"
+          className="flex gap-6 w-max"
           animate={{ x: ["0%", "-50%"] }}
-          transition={{ ease: "linear", duration: 40, repeat: Infinity }}
+          transition={{ ease: "linear", duration: 48, repeat: Infinity }}
         >
           {track.map((project, i) => (
             <a
               key={`${project.project}-${i}`}
               href={`project-highlight.html#${project.project}`}
-              className="group relative aspect-[3/4] h-56 md:h-72 flex-shrink-0 overflow-hidden rounded-2xl shadow-md"
-              style={{ rotate: `${i % 2 === 0 ? -1.5 : 2}deg` } as CSSProperties}
+              className="group relative w-72 sm:w-80 md:w-96 aspect-[3/4] flex-shrink-0 overflow-hidden rounded-2xl shadow-lg"
             >
               <img
                 src={project.src}
@@ -32,12 +30,12 @@ export default function ProjectHighlightsMarquee() {
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
               />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent p-4">
-                <p className="text-xs font-semibold uppercase tracking-wide text-white leading-tight">
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6">
+                <p className="text-xl md:text-2xl font-bold text-white leading-tight">
                   {project.title}
                 </p>
-                <p className="text-xs text-white/80 leading-tight mt-0.5">{project.tag}</p>
-                <span className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-accent opacity-0 transition-opacity group-hover:opacity-100">
+                <p className="text-sm text-white/80 leading-snug mt-1">{project.tag}</p>
+                <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-accent opacity-0 transition-opacity group-hover:opacity-100">
                   View project <span aria-hidden>→</span>
                 </span>
               </div>
