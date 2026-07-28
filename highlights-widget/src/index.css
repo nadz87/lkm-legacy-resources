@@ -1,0 +1,16 @@
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #000000;
+  --color-muted-foreground: #666666;
+  --color-border: #e6e6e6;
+  --color-card: #f6f6f9;
+  --color-accent: #d2ac3d;
+  --color-accent-dark: #b8942f;
+  --color-navy: #022035;
+
+  --font-sans: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont,
+    "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
+}

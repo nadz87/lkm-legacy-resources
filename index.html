@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="assets/widget/highlights.css">
 </head>
 <body>
 
@@ -294,43 +295,7 @@
         <h2>200+ projects. Proven results.</h2>
       </div>
     </div>
-    <div class="feature-card">
-      <div class="img-r"><img src="assets/feat-project.jpg" alt="Large facilities project site"></div>
-      <div>
-        <p class="news-meta">Nationwide · Since 2021</p>
-        <h3 class="h-feature">From lockdown disinfection to multinational plants</h3>
-        <p>From disinfecting frontline facilities during lockdown to servicing multinational manufacturing plants today, our foundation has never changed: show up, do it right, never compromise on quality.</p>
-        <p style="margin-top:14px"><a href="about.html" class="link-arrow">Read our story</a></p>
-      </div>
-    </div>
-    <div class="rail-wrap">
-      <div class="rail" style="padding-left:0">
-        <article class="rail-card">
-          <div class="card-img"><img src="assets/hl-sungai.jpg" alt="Scientex site, Sungai Petani"></div>
-          <div class="card-body">
-            <p class="news-meta">Sungai Petani, Kedah</p>
-            <h3>7-day manpower coverage at Scientex SP &amp; Jawi</h3>
-            <a href="#" class="link-arrow">Learn more</a>
-          </div>
-        </article>
-        <article class="rail-card">
-          <div class="card-img"><img src="assets/hl-penang.jpg" alt="Penang HQ hub"></div>
-          <div class="card-body">
-            <p class="news-meta">Penang</p>
-            <h3>HQ hub covering BBS Automation, YBS &amp; Atlas Vending</h3>
-            <a href="#" class="link-arrow">Learn more</a>
-          </div>
-        </article>
-        <article class="rail-card">
-          <div class="card-img"><img src="assets/hl-kota.jpg" alt="Large-scale facilities project, Kota Bharu"></div>
-          <div class="card-body">
-            <p class="news-meta">Kota Bharu</p>
-            <h3>Large-scale project-based facilities operations</h3>
-            <a href="#" class="link-arrow">Learn more</a>
-          </div>
-        </article>
-      </div>
-    </div>
+    <div id="highlights-root"></div>
   </div>
 </section>
 
@@ -527,6 +492,8 @@ document.querySelectorAll('.nav-drop').forEach(function (drop) {
   });
 });
 </script>
+
+<script src="assets/widget/highlights.js" defer></script>
 
 </body>
 </html>
