@@ -58,7 +58,7 @@ export default function ProjectHighlightsMarquee() {
                   </div>
                 )}
 
-                <div className="absolute inset-x-0 bottom-0 h-[11.5rem] md:h-[12.5rem] bg-gradient-to-t from-black/95 via-black/55 to-transparent p-6">
+                <div className="absolute inset-x-0 bottom-0 h-[11.5rem] md:h-[12.5rem] flex flex-col justify-end bg-gradient-to-t from-black/95 via-black/55 to-transparent p-6">
                   <p className="text-xl md:text-2xl font-bold text-white leading-tight">
                     {project.title}
                   </p>
