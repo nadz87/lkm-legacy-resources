@@ -12,7 +12,7 @@ const track = [...FEATURED_PROJECTS, ...FEATURED_PROJECTS];
 export default function ProjectHighlightsMarquee() {
   return (
     <div className={cn("w-full bg-background")}>
-      <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
+      <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_140px,black_calc(100%-140px),transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_140px,black_calc(100%-140px),transparent)]">
         <motion.div
           className="flex gap-6 w-max"
           animate={{ x: ["0%", "-50%"] }}
