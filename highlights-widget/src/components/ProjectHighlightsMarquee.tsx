@@ -28,7 +28,7 @@ const track = [...FEATURED_PROJECTS, ...FEATURED_PROJECTS];
 export default function ProjectHighlightsMarquee() {
   return (
     <div className={cn("w-full bg-background")}>
-      <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_24px,black_calc(100%-24px),transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_24px,black_calc(100%-24px),transparent)] md:[mask-image:linear-gradient(to_right,transparent,black_140px,black_calc(100%-140px),transparent)] md:[-webkit-mask-image:linear-gradient(to_right,transparent,black_140px,black_calc(100%-140px),transparent)]">
+      <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_24px,black_calc(100%-24px),transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_24px,black_calc(100%-24px),transparent)] md:[mask-image:linear-gradient(to_right,transparent,black_60px,black_calc(100%-60px),transparent)] md:[-webkit-mask-image:linear-gradient(to_right,transparent,black_60px,black_calc(100%-60px),transparent)] lg:[mask-image:linear-gradient(to_right,transparent,black_100px,black_calc(100%-100px),transparent)] lg:[-webkit-mask-image:linear-gradient(to_right,transparent,black_100px,black_calc(100%-100px),transparent)] xl:[mask-image:linear-gradient(to_right,transparent,black_140px,black_calc(100%-140px),transparent)] xl:[-webkit-mask-image:linear-gradient(to_right,transparent,black_140px,black_calc(100%-140px),transparent)]">
         <motion.div
           className="flex gap-6 w-max"
           animate={{ x: ["0%", "-50%"] }}
