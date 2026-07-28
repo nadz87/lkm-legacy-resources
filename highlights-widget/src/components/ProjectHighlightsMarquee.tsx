@@ -59,7 +59,7 @@ export default function ProjectHighlightsMarquee() {
                 )}
 
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/55 to-transparent p-6">
-                  <p className="min-h-[3.25rem] md:min-h-[3.75rem] flex items-end text-xl md:text-2xl font-bold text-white leading-tight">
+                  <p className="min-h-[3.25rem] md:min-h-[3.75rem] flex items-start text-xl md:text-2xl font-bold text-white leading-tight">
                     {project.title}
                   </p>
                   <p className="text-sm text-white/80 leading-snug mt-1">{project.tag}</p>
