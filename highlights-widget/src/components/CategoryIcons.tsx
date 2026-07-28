@@ -41,7 +41,9 @@ export function RetailIcon(props: SVGProps<SVGSVGElement>) {
 export function FactoryIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg {...base} {...props}>
-      <path d="M3 21V11l6 4v-4l6 4v-4l6 4v6H3Z" />
+      <rect x="3" y="10" width="18" height="11" rx="0.5" />
+      <rect x="6" y="3" width="3" height="7" />
+      <rect x="14" y="6" width="3" height="4" />
       <path d="M7 21v-4M12 21v-4M17 21v-4" />
     </svg>
   );
