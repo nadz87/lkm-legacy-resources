@@ -22,15 +22,16 @@ export default function ProjectHighlightsMarquee() {
             <a
               key={`${project.project}-${i}`}
               href={`project-highlight.html#${project.project}`}
-              className="group relative w-72 sm:w-80 md:w-96 aspect-[3/4] flex-shrink-0 overflow-hidden rounded-2xl shadow-lg"
+              className="group relative w-64 sm:w-72 md:w-80 aspect-[3/4] flex-shrink-0 overflow-hidden rounded-2xl shadow-lg"
             >
               <img
                 src={project.src}
                 alt={`${project.title} — ${project.tag}`}
                 loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                className="h-full w-full object-cover brightness-75 transition-transform duration-300 group-hover:scale-105"
               />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6">
+              <div className="absolute inset-0 bg-black/15" />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/55 to-transparent p-6">
                 <p className="text-xl md:text-2xl font-bold text-white leading-tight">
                   {project.title}
                 </p>
